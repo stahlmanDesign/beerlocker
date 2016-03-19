@@ -55,6 +55,13 @@ beersRoute.post(function(req,res){
 // above code creates new route with prefix /beers and sets up what to do when we want to POST to that endpoint
 // in this case we create a new Beer model, set properties to those passed in, and call save on Beer model which is a Mongoose function that save to MongoDB
 
+// create endpoint /api/beers for GET
+beersRoute.get(function(req, res) {
+	Beer.find(function(err, beers) {
+		if (err) res.send(err);
+		res.json(beers);
+	});
+});
 
 // register all our routes with /api
 app.use('/api',router);
