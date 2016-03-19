@@ -1,0 +1,14 @@
+{
+	"name": "beerlocker",
+	"version": "0.1.0",
+	"description": "test app Building a RESTful API With Node",
+	"main": "server.js",
+	"dependencies": {
+		"express": "~4.1.1"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Justin Stahlman <jstahlman@mac.com> (http://www.stahlmandesign.com/)",
+	"license": "ISC"
+}
