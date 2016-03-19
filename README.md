@@ -16,3 +16,14 @@ beerlocker/
   server.js       // main application logic
   
 ```
+
+## Use Nodemon
+
+Nodemon is a utility that will monitor for any changes in your source and automatically restart your server.
+
+```npm install -g nodemon```
+
+Now instead of ```node server.js``` use ```nodemon server.js```
+
+When you save a file, server restarts without having to ctrl-c and type ```node server.js``` again.
+
