@@ -63,6 +63,39 @@ beersRoute.get(function(req, res) {
 	});
 });
 
+var beerRoute = router.route('/beers/:beer_id');
+
+beerRoute.get(function(req, res) {
+	Beer.findById(req.params.beer_id, function(err, beer) { // findById is Mongoose Beer model function
+		if (err) res.send(err);
+		res.json(beer);
+	});
+});
+
+// create endpiont /api/beer/:beer_id for PUT
+beerRoute.put(function(req, res) {
+	// use Beer model to find specific beer
+	Beer.findById(req.params.beer_id, function(err, beer) {
+		if (err)res.send(err);
+
+		//update existing beer quantity
+		beer.quantity = req.body.quantity;
+
+		//save beer and check for errors
+		beer.save(function(err){
+			if (err) res.send(err);
+			res.json(beer);
+		});
+	});
+});
+
+beerRoute.delete(function(req,res){
+	Beer.findByIdAndRemove(req.params.beer_id,function(err){
+		if (err) res.send(err);
+		res.json({message: 'Beer removed from the locker!'});
+	});
+});
+
 // register all our routes with /api
 app.use('/api',router);
 
